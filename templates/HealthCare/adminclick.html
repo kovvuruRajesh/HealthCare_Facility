@@ -1,0 +1,73 @@
+{% extends 'HealthCare/homebase.html' %}
+{% load static %}
+{% block content %}
+<style>
+  body {
+    background-color: white;
+    margin: 0;
+    font-family: arial;
+  }
+
+  .jumbotron {
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    margin-bottom: 0;
+    padding: 20px;
+    padding-top: 60px; /* Adjust top padding to accommodate navbar */
+  }
+
+  .grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+    margin-bottom: 10px; /* Adjust the bottom margin as needed */
+  }
+
+  .title {
+    color: black;
+    font-size: 18px;
+  }
+
+  button {
+    border: none;
+    outline: 0;
+    padding: 8px;
+    color: white;
+    background-color: #007bff;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  button:hover,
+  a:hover {
+    opacity: 0.7;
+  }
+
+</style>
+
+<div class="jumbotron">
+  <h1 class="display-4"><b>Welcome! Admin</b></h1>
+  <p class="lead">Welcome to HealthCare Facility Management.</p>
+  <hr class="my-4">
+</div>
+
+<div class="grid-container">
+  <div class="card">
+    <img src="{% static "images/admin.png" %}" alt="Admin" style="width:100%">
+    <p class="title">ADMIN</p>
+    <a class="btn btn-success btn-lg" href="/adminlogin" role="button">Login</a>
+  </div>
+</div>
+
+{% endblock content %}

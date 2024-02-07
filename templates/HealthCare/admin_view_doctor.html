@@ -1,0 +1,129 @@
+{% extends 'HealthCare/admin_base.html' %}
+{% block content %}
+{% load static %}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    .panel-heading {
+      background-color: #007BFF;
+      color: white;
+      font-weight: bold;
+    }
+
+    .panel-title {
+      font-size: 18px;
+    }
+
+    .table {
+      border-radius: 5px;
+    }
+
+    .table th,
+    .table td {
+      vertical-align: middle;
+    }
+
+    .table th {
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+
+    .table-hover tbody tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    .btn-xs {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background-color: #007BFF;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-danger {
+      background-color: #FF3547;
+      border: none;
+    }
+
+    .btn-danger:hover {
+      background-color: #d11a24;
+    }
+
+    .profile-pic {
+      width: 100px; /* Set a fixed width for the rectangular profile picture */
+      height: 80px; /* Set a fixed height for the rectangular profile picture */
+      object-fit: cover; /* Maintain aspect ratio while covering the container */
+      border-radius: 5px; /* Add rounded corners */
+    }
+
+    .mobile-col {
+      width: 120px;
+    }
+
+    .address-col {
+      width: 150px;
+    }
+
+    .department-col {
+      width: 150px;
+    }
+  </style>
+</head>
+
+<div class="container">
+  <h6>Doctors</h6>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Doctor List</h3>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Profile Picture</th>
+          <th class="mobile-col">Mobile</th>
+          <th class="address-col">Address</th>
+          <th class="department-col">Department</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for d in doctors %}
+        <tr>
+          <td>{{ d.get_name }}</td>
+          <td><img src="{% static d.profile_pic.url %}" alt="Profile Pic" class="profile-pic" /></td>
+          <td class="mobile-col">{{ d.mobile }}</td>
+          <td class="address-col">{{ d.address }}</td>
+          <td class="department-col">{{ d.department }}</td>
+          <td><a class="btn btn-primary btn-xs" href="{% url 'update-doctor' d.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
+          <td><a class="btn btn-danger btn-xs" href="{% url 'delete-doctor-from-hospital' d.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

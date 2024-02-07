@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>HealthCare Facility</title>
+
+  <style media="screen">
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .card {
+      flex-basis: calc(33.33% - 20px);
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.16), 0 6px 20px 0 rgba(0, 0, 0, 0.12);
+    }
+
+    .icon-container {
+      background-color: #333;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .icon {
+      font-size: 2.5em;
+      color: #fff;
+    }
+
+    .content {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 2em;
+      margin: 0;
+    }
+
+    h4 {
+      font-size: 1.2em;
+      color: #888;
+      margin: 5px 0;
+    }
+
+    p {
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    /* Card Colors */
+    .card.card-doctor {
+      background-color: teal;
+    }
+
+    .card.card-patient {
+      background-color: #ffa53d;
+    }
+
+    .card.card-appointment {
+      background-color: #37b157;
+    }
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="card card-doctor">
+      <div class="icon-container">
+        <i class="fa fa-user-md icon"></i>
+      </div>
+      <div class="content">
+        <h3>{{doctorcount}}</h3>
+        <h4>Total Doctor</h4>
+        <p>Approval Required: {{pendingdoctorcount}}</p>
+      </div>
+    </div>
+    <div class="card card-patient">
+      <div class="icon-container">
+        <i class="fa fa-user-o icon"></i>
+      </div>
+      <div class="content">
+        <h3>{{patientcount}}</h3>
+        <h4>Total Patient</h4>
+        <p>Wants to Admit: {{pendingpatientcount}}</p>
+      </div>
+    </div>
+    <div class="card card-appointment">
+      <div class="icon-container">
+        <i class="fa fa-calendar icon"></i>
+      </div>
+      <div class="content">
+        <h3>{{appointmentcount}}</h3>
+        <h4>Total Appointment</h4>
+        <p>Approve Appointments: {{pendingappointmentcount}}</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

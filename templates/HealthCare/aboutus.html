@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>About Us</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style media="screen">
+    body {
+      background-color: #f8f9fa; /* Light gray background color */
+    }
+
+    .jumbotron {
+      margin-top: 20px; /* Add margin for better spacing */
+      margin-bottom: 20px;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .jumbotron h1 {
+      text-align: center;
+      color: #007BFF; /* Blue title color */
+      font-size: 36px; /* Increase font size for a more attractive title */
+    }
+
+    .jumbotron p {
+      font-size: 16px;
+      text-align: justify; /* Justify the text for better readability */
+    }
+
+    .jumbotron hr {
+      border-top: 1px solid #ccc;
+    }
+
+    .container {
+      margin-top: 20px; /* Add margin for better spacing */
+      margin-bottom: 80px;
+    }
+
+    .btn-success {
+      background-color: #007BFF;
+      border-color: #007BFF;
+    }
+
+    .btn-success:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  {% include "HealthCare/navbar.html" %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">HealthCare Facility Management</h1>
+      <p>
+        Welcome to HealthCare Facility, your trusted partner in managing healthcare services. Our mission is to provide
+        advanced and comprehensive healthcare solutions to patients, doctors, and administrators.
+      </p>
+      <p>
+        At HealthCare Facility, we believe in seamless healthcare management that empowers both patients and medical
+        professionals. Our platform offers efficient appointment scheduling, patient records management, and streamlined
+        communication between doctors and patients.
+      </p>
+      <p>
+        Our team consists of dedicated professionals from both healthcare and technology backgrounds. We understand
+        the unique challenges faced by healthcare facilities and aim to address them through innovative solutions.
+        Whether you're a patient seeking quality medical care or a healthcare provider looking to enhance your practice,
+        HealthCare Facility is here to make your experience smooth, efficient, and secure.
+      </p>
+
+      <hr class="my-4">
+      <p>Explore our website:</p>
+      <p class="lead">
+        <a class="btn btn-success btn-lg" href="/" role="button">HOME</a>
+      </p>
+    </div>
+  </div>
+  {% include "HealthCare/footer.html" %}
+</body>
+
+</html>

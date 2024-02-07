@@ -1,0 +1,89 @@
+{% extends 'HealthCare/admin_base.html' %}
+{% load static %}
+{% block content %}
+{% include 'HealthCare/admin_dashboard_cards.html' %}
+<br><br>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card border-primary">
+        <div class="card-header bg-primary text-white">
+          <h5 class="card-title">Recent Doctors</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Mobile</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for d in doctors %}
+                <tr>
+                  <td>{{ d.get_name }}</td>
+                  <td>{{ d.department }}</td>
+                  <td>{{ d.mobile }}</td>
+                  <td>
+                    {% if d.status %}
+                    <span class="badge badge-success">Permanent</span>
+                    {% else %}
+                    <span class="badge badge-warning">On Hold</span>
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card border-primary">
+        <div class="card-header bg-primary text-white">
+          <h5 class="card-title">Recent Patients</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Symptoms</th>
+                  <th>Mobile</th>
+                  <th>Address</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for p in patients %}
+                <tr>
+                  <td>{{ p.get_name }}</td>
+                  <td>{{ p.symptoms }}</td>
+                  <td>{{ p.mobile }}</td>
+                  <td>{{ p.address }}</td>
+                  <td>
+                    {% if p.status %}
+                    <span class="badge badge-success">Admitted</span>
+                    {% else %}
+                    <span class="badge badge-warning">On Hold</span>
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
